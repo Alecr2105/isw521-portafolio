@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CV – Alejandro Corrales</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dark: #1a1a2e;
+      --accent: #c9a84c;
+      --light: #f5f0e8;
+      --mid: #e8e0d0;
+      --text: #2d2d2d;
+      --muted: #6b6b6b;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--light);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--dark);
+      color: white;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 2.5rem;
+      padding: 3rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,76,0.2), transparent 70%);
+    }
+
+    .avatar {
+      width: 130px; height: 130px;
+      border-radius: 50%;
+      border: 4px solid var(--accent);
+      object-fit: cover;
+      position: relative;
+      z-index: 1;
+    }
+
+    .avatar-placeholder {
+      width: 130px; height: 130px;
+      border-radius: 50%;
+      border: 4px solid var(--accent);
+      background: linear-gradient(135deg, #2d2d4e, #3d3d6e);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: var(--accent);
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-info { position: relative; z-index: 1; }
+
+    .header-info h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.4rem;
+    }
+
+    .header-info .tagline {
+      color: var(--accent);
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.88rem;
+      color: #ccc;
+    }
+
+    .contact-item span.icon { color: var(--accent); font-size: 1rem; }
+
+    /* LAYOUT */
+    .cv-body {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      min-height: calc(100vh - 220px);
+    }
+
+    /* SIDEBAR */
+    aside {
+      background: var(--dark);
+      color: white;
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.2rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid rgba(201,168,76,0.3);
+    }
+
+    /* Skills bars */
+    .skill-item { margin-bottom: 0.8rem; }
+    .skill-label {
+      font-size: 0.82rem;
+      color: #ccc;
+      margin-bottom: 0.3rem;
+      display: flex;
+      justify-content: space-between;
+    }
+    .skill-bar {
+      height: 4px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .skill-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), #e8c97a);
+      border-radius: 2px;
+      animation: fillBar 1.2s ease forwards;
+      transform-origin: left;
+    }
+    @keyframes fillBar { from { width: 0; } }
+
+    .tag-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .tag {
+      background: rgba(201,168,76,0.15);
+      border: 1px solid rgba(201,168,76,0.3);
+      color: #ddd;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 20px;
+    }
+
+    .soft-list { list-style: none; }
+    .soft-list li {
+      font-size: 0.85rem;
+      color: #ccc;
+      padding: 0.3rem 0;
+      padding-left: 1rem;
+      position: relative;
+    }
+    .soft-list li::before {
+      content: '▸';
+      position: absolute; left: 0;
+      color: var(--accent);
+    }
+
+    .lang-item { margin-bottom: 0.6rem; }
+    .lang-name { font-size: 0.85rem; color: white; font-weight: 500; }
+    .lang-level { font-size: 0.75rem; color: var(--accent); }
+
+    /* MAIN */
+    main {
+      padding: 2.5rem 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .main-section {}
+
+    .main-section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--dark);
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Profile */
+    .profile-text {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--text);
+    }
+
+    /* Experience */
+    .exp-card {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      border-left: 4px solid var(--accent);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.8rem;
+    }
+
+    .exp-company {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: var(--dark);
+    }
+
+    .exp-date {
+      font-size: 0.78rem;
+      color: white;
+      background: var(--dark);
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .exp-list { list-style: none; margin-top: 0.5rem; }
+    .exp-list li {
+      font-size: 0.88rem;
+      color: var(--muted);
+      padding: 0.3rem 0;
+      padding-left: 1.2rem;
+      position: relative;
+      line-height: 1.6;
+    }
+    .exp-list li::before {
+      content: '◆';
+      position: absolute; left: 0;
+      color: var(--accent);
+      font-size: 0.5rem;
+      top: 0.55rem;
+    }
+
+    /* Education */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .edu-card {
+      background: white;
+      border-radius: 8px;
+      padding: 1.2rem;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    .edu-icon { font-size: 1.8rem; margin-bottom: 0.5rem; }
+    .edu-title { font-size: 0.85rem; font-weight: 500; color: var(--dark); line-height: 1.4; }
+
+    /* References */
+    .ref-card {
+      background: white;
+      border-radius: 8px;
+      padding: 1.2rem 1.5rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .ref-name { font-weight: 500; font-size: 0.95rem; color: var(--dark); }
+    .ref-role { font-size: 0.8rem; color: var(--muted); margin-top: 0.2rem; }
+    .ref-phone { font-size: 0.85rem; color: var(--accent); font-weight: 500; }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+    }
+
+    @media (max-width: 768px) {
+      header { grid-template-columns: 1fr; text-align: center; padding: 2rem; }
+      .contact-row { justify-content: center; }
+      .cv-body { grid-template-columns: 1fr; }
+      main { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="avatar-placeholder">AC</div>
+  <div class="header-info">
+    <h1>Alejandro Corrales</h1>
+    <p class="tagline">Desarrollador de Software · Ingeniería en Software</p>
+    <div class="contact-row">
+      <div class="contact-item"><span class="icon">📞</span> 8577 8282</div>
+      <div class="contact-item"><span class="icon">✉️</span> alejandrocorrales2105@gmail.com</div>
+      <div class="contact-item"><span class="icon">📍</span> Florencia, Costa Rica</div>
+    </div>
+  </div>
+</header>
+
+<div class="cv-body">
+
+  <!-- SIDEBAR -->
+  <aside>
+
+    <div>
+      <div class="section-title">Habilidades Técnicas</div>
+      <div class="skill-item">
+        <div class="skill-label"><span>HTML / CSS</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-label"><span>JavaScript</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-label"><span>C# / Python</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-label"><span>phpMyAdmin</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-label"><span>WordPress / Divi</span></div>
+        <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-title">Herramientas</div>
+      <div class="tag-list">
+        <span class="tag">Jira</span>
+        <span class="tag">Scrumban</span>
+        <span class="tag">Agile</span>
+        <span class="tag">MS Office</span>
+        <span class="tag">Git</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-title">Aptitudes</div>
+      <ul class="soft-list">
+        <li>Comunicación efectiva</li>
+        <li>Trabajo en equipo</li>
+        <li>Capacidad analítica</li>
+        <li>Atención al cliente</li>
+        <li>Compromiso laboral</li>
+        <li>Actitud positiva</li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="section-title">Idiomas</div>
+      <div class="lang-item">
+        <div class="lang-name">Español</div>
+        <div class="lang-level">Nativo</div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">Inglés</div>
+        <div class="lang-level">B2 Reading · B1 Listening</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-title">Otros</div>
+      <ul class="soft-list">
+        <li>Entrenamiento en gym</li>
+        <li>Aprendizaje continuo</li>
+        <li>Licencia de conducir B1</li>
+      </ul>
+    </div>
+
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main>
+
+    <div class="main-section">
+      <div class="main-section-title">Perfil</div>
+      <p class="profile-text">
+        Egresado del Colegio Agropecuario de San Carlos con Técnico Medio en Desarrollo de Software.
+        Actualmente cursando Ingeniería del Software en la UTN (clases nocturnas).
+        Con experiencia práctica en proyectos web reales y metodologías ágiles, busca crecer
+        profesionalmente en el área del desarrollo de software.
+      </p>
+    </div>
+
+    <div class="main-section">
+      <div class="main-section-title">Experiencia Laboral</div>
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-company">CoopelescaTours</div>
+          <div class="exp-date">Oct 2024 – Dic 2024</div>
+        </div>
+        <ul class="exp-list">
+          <li>Colaboré en la mejora del sitio web de Montaña Sagrada.</li>
+          <li>Desarrollé el sistema de Staging de reservas para Montaña Sagrada, actualmente en producción.</li>
+          <li>Supervisor de práctica: Estebaan Díaz Siles.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="main-section">
+      <div class="main-section-title">Formación</div>
+      <div class="edu-grid">
+        <div class="edu-card">
+          <div class="edu-icon">🎓</div>
+          <div class="edu-title">Bachillerato en Educación Media</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-icon">💻</div>
+          <div class="edu-title">Técnico Medio en Desarrollo de Software</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-icon">🏫</div>
+          <div class="edu-title">Ingeniería del Software — UTN (en curso)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-section">
+      <div class="main-section-title">Referencias</div>
+      <div class="ref-card">
+        <div>
+          <div class="ref-name">Estebaan Díaz Siles</div>
+          <div class="ref-role">Encargado durante la práctica en Coopelesca</div>
+        </div>
+        <div class="ref-phone">📞 88659046</div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  Alejandro Corrales Rivera · CV 2025
+</footer>
+
+</body>
+</html>
