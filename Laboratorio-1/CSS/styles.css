@@ -1,0 +1,976 @@
+/* =============================================
+   VARIABLES DE TEMA (Modo Claro por defecto)
+   ============================================= */
+:root {
+  --color-primary: #1a3c5e;
+  --color-accent:  #c0392b;
+  --color-gold:    #e67e22;
+
+  /* Fondo y superficies */
+  --bg-body:       #f4f6f8;
+  --bg-card:       #ffffff;
+  --bg-navbar:     #ffffff;
+  --bg-alt:        #eaf0f7;
+
+  /* Texto — contraste ≥ 4.5:1 sobre sus fondos */
+  --text-primary:  #1a1a1a;   /* sobre #f4f6f8 → ~16:1 */
+  --text-secondary:#4a5568;   /* sobre #f4f6f8 → ~7:1  */
+  --text-muted:    #718096;   /* sobre #ffffff → ~4.6:1 */
+  --text-on-dark:  #ffffff;
+
+  --border:        #e2e8f0;
+  --shadow:        0 2px 12px rgba(0,0,0,0.08);
+  --shadow-hover:  0 8px 28px rgba(0,0,0,0.14);
+  --navbar-h:      72px;
+  --radius:        10px;
+  --transition:    0.25s ease;
+}
+
+/* =============================================
+   MODO OSCURO
+   ============================================= */
+body.dark-mode {
+  --bg-body:       #0d1b2a;
+  --bg-card:       #162435;
+  --bg-navbar:     #0a1520;
+  --bg-alt:        #122030;
+  --text-primary:  #edf2f7;   /* sobre #0d1b2a → ~14:1 */
+  --text-secondary:#a0b4c8;   /* sobre #0d1b2a → ~6:1  */
+  --border:        #2a3f55;
+  --shadow:        0 2px 12px rgba(0,0,0,0.4);
+  --shadow-hover:  0 8px 28px rgba(0,0,0,0.6);
+}
+
+/* =============================================
+   RESET Y BASE
+   ============================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-body);
+  color: var(--text-primary);
+  line-height: 1.65;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* =============================================
+   ACCESIBILIDAD
+   ============================================= */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Indicador de foco visible para navegación por teclado */
+:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* =============================================
+   BOTONES
+   ============================================= */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: background-color var(--transition),
+              border-color var(--transition),
+              color var(--transition);
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--color-accent);
+  color: #ffffff;
+  border-color: var(--color-accent);
+}
+
+.btn-primary:hover {
+  background-color: #a93226;
+  border-color: #a93226;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.btn-card {
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border: 2px solid var(--color-primary);
+  border-radius: 5px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: background-color var(--transition),
+              color var(--transition);
+}
+
+.btn-card:hover {
+  background-color: transparent;
+  color: var(--color-primary);
+}
+
+body.dark-mode .btn-card:hover {
+  color: #a0c4e8;
+  border-color: #a0c4e8;
+}
+
+/* =============================================
+   SECCIONES — estilos comunes
+   ============================================= */
+section {
+  padding: 5rem 2rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-header h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.section-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* =============================================
+   HEADER / NAVBAR  ← FLEXBOX
+   ============================================= */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--bg-navbar);
+  box-shadow: var(--shadow);
+  transition: background-color var(--transition);
+}
+
+.navbar {
+  display: flex;              /* ← FLEXBOX */
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 0 2rem;
+  height: var(--navbar-h);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.nav-logo {
+  display: flex;              /* ← FLEXBOX */
+  flex-direction: column;
+  line-height: 1.1;
+  flex-shrink: 0;
+}
+
+.logo-text {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  letter-spacing: 0.08em;
+  transition: color var(--transition);
+}
+
+body.dark-mode .logo-text {
+  color: #ffffff;
+}
+
+.logo-sub {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;              /* ← FLEXBOX */
+  gap: 0.2rem;
+}
+
+.nav-links a {
+  padding: 0.5rem 0.9rem;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  transition: color var(--transition), background-color var(--transition);
+}
+
+.nav-links a:hover {
+  color: var(--color-primary);
+  background-color: var(--bg-alt);
+}
+
+body.dark-mode .nav-links a:hover {
+  color: #ffffff;
+}
+
+.theme-toggle {
+  background: none;
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;              /* ← FLEXBOX */
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: border-color var(--transition), background-color var(--transition);
+}
+
+.theme-toggle:hover {
+  background-color: var(--bg-alt);
+  border-color: var(--color-gold);
+}
+
+/* Botón hamburguesa — oculto en desktop */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 4px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--text-primary);
+  border-radius: 2px;
+  transition: background-color var(--transition);
+}
+
+/* =============================================
+   HERO  ← FLEXBOX
+   ============================================= */
+.hero {
+  display: flex;              /* ← FLEXBOX */
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  padding: 5rem 4rem;
+  min-height: calc(100vh - var(--navbar-h));
+  background: linear-gradient(135deg, #1a3c5e 0%, #0b2340 100%);
+  color: var(--text-on-dark);
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 560px;
+}
+
+.hero-badge {
+  display: inline-block;
+  background-color: rgba(230, 126, 34, 0.18);
+  color: var(--color-gold);
+  border: 1px solid var(--color-gold);
+  padding: 0.3rem 1rem;
+  border-radius: 100px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.4rem;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+}
+
+.hero-desc {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.75;
+  margin-bottom: 2.25rem;
+}
+
+.hero-ctas {
+  display: flex;              /* ← FLEXBOX */
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero-image {
+  flex: 1;
+  max-width: 540px;
+}
+
+.hero-image img {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+}
+
+/* =============================================
+   VENTAJAS  ← FLEXBOX
+   ============================================= */
+.ventajas {
+  background-color: var(--bg-alt);
+  padding: 3.5rem 2rem;
+  transition: background-color var(--transition);
+}
+
+.ventajas-list {
+  display: flex;              /* ← FLEXBOX */
+  justify-content: center;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.ventaja-item {
+  display: flex;              /* ← FLEXBOX */
+  align-items: flex-start;
+  gap: 1rem;
+  flex: 1;
+  min-width: 200px;
+  max-width: 280px;
+  padding: 1.5rem;
+  background-color: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: background-color var(--transition), box-shadow var(--transition);
+}
+
+.ventaja-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.ventaja-item h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  color: var(--text-primary);
+}
+
+.ventaja-item p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* =============================================
+   PRODUCTOS  ← CSS GRID
+   ============================================= */
+.productos {
+  background-color: var(--bg-body);
+  max-width: 1400px;
+  margin: 0 auto;
+  transition: background-color var(--transition);
+}
+
+.productos-grid {
+  display: grid;              /* ← CSS GRID */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.producto-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  display: flex;              /* ← FLEXBOX (interno) */
+  flex-direction: column;
+  position: relative;
+  transition: transform var(--transition),
+              box-shadow var(--transition),
+              background-color var(--transition),
+              border-color var(--transition);
+}
+
+.producto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.producto-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: var(--color-accent);
+  color: #ffffff;
+  padding: 0.2rem 0.7rem;
+  border-radius: 100px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  z-index: 1;
+}
+
+.producto-card > img {
+  width: 100%;
+  height: 175px;
+  object-fit: contain;
+  background-color: var(--bg-alt);
+  padding: 1.25rem;
+  transition: background-color var(--transition);
+}
+
+.producto-info {
+  display: flex;              /* ← FLEXBOX */
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.25rem;
+  flex: 1;
+}
+
+.producto-info h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.producto-tipo {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.producto-desc {
+  font-size: 0.87rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.producto-features {
+  padding: 0;
+  display: flex;              /* ← FLEXBOX */
+  flex-direction: column;
+  gap: 0.22rem;
+  margin: 0.25rem 0;
+}
+
+.producto-features li {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  padding-left: 1.3em;
+  position: relative;
+}
+
+.producto-features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-gold);
+  font-weight: 700;
+}
+
+/* =============================================
+   NOSOTROS  ← CSS GRID
+   ============================================= */
+.nosotros {
+  background-color: var(--bg-alt);
+  transition: background-color var(--transition);
+}
+
+.nosotros-inner {
+  display: grid;              /* ← CSS GRID */
+  grid-template-columns: 3fr 2fr;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.nosotros-header {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.nosotros-lead {
+  font-size: 1.1rem;
+  line-height: 1.75;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.nosotros-article p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.nosotros-valores h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.valores-grid {
+  display: grid;              /* ← CSS GRID */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.valor-item {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 1.1rem;
+  transition: background-color var(--transition), border-color var(--transition);
+}
+
+.valor-item strong {
+  display: block;
+  font-size: 0.92rem;
+  color: var(--color-primary);
+  margin-bottom: 0.35rem;
+}
+
+body.dark-mode .valor-item strong {
+  color: var(--color-gold);
+}
+
+.valor-item p {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Panel de estadísticas */
+.nosotros-stats {
+  background-color: var(--color-primary);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  display: grid;              /* ← CSS GRID */
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-content: start;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--color-gold);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.stat-label {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.35;
+}
+
+.hanksugi-logo {
+  grid-column: 1 / -1;
+  margin: 0 auto;
+  max-width: 160px;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+
+/* =============================================
+   CONTACTO  ← FLEXBOX
+   ============================================= */
+.contacto {
+  background-color: var(--bg-body);
+  max-width: 1200px;
+  margin: 0 auto;
+  transition: background-color var(--transition);
+}
+
+.contacto-form {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;              /* ← FLEXBOX */
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-row {
+  display: flex;              /* ← FLEXBOX */
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;              /* ← FLEXBOX */
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.97rem;
+  font-family: inherit;
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  transition: border-color var(--transition), background-color var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--color-primary);
+  outline: none;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.btn-submit {
+  align-self: flex-start;
+  padding: 0.85rem 2.5rem;
+}
+
+.form-feedback {
+  font-size: 0.9rem;
+  color: #27ae60;
+  font-weight: 600;
+  min-height: 1.4em;
+}
+
+/* =============================================
+   FOOTER  ← CSS GRID
+   ============================================= */
+footer {
+  background-color: #0a1520;
+  color: rgba(255, 255, 255, 0.82);
+  padding: 4rem 2rem 0;
+}
+
+.footer-grid {
+  display: grid;              /* ← CSS GRID */
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-logo {
+  display: block;
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+}
+
+.footer-brand p {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.65;
+}
+
+.footer-nav h4,
+.footer-products h4,
+.footer-contact h4 {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 1.25rem;
+}
+
+.footer-nav ul li,
+.footer-products ul li {
+  margin-bottom: 0.55rem;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-products ul li a {
+  transition: color var(--transition);
+}
+
+.footer-products ul li a:hover {
+  color: #ffffff;
+}
+
+.footer-nav ul li a {
+  transition: color var(--transition);
+}
+
+.footer-nav ul li a:hover {
+  color: #ffffff;
+}
+
+.footer-contact address {
+  font-style: normal;
+}
+
+.footer-contact address p {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0.55rem;
+}
+
+.footer-contact address a {
+  transition: color var(--transition);
+}
+
+.footer-contact address a:hover {
+  color: #ffffff;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem 0;
+  text-align: center;
+}
+
+.footer-bottom p {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+/* =============================================
+   MEDIA QUERY — Breakpoint 1: Tablet (768px)
+   ============================================= */
+@media (max-width: 768px) {
+  /* Navbar hamburguesa */
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: var(--navbar-h);
+    left: 0;
+    right: 0;
+    background-color: var(--bg-navbar);
+    flex-direction: column;
+    padding: 1rem 2rem 2rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    gap: 0.2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  /* Hero en columna */
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 3.5rem 1.75rem;
+    min-height: auto;
+    gap: 2.5rem;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero h1 {
+    font-size: 2.4rem;
+  }
+
+  .hero-ctas {
+    justify-content: center;
+  }
+
+  .hero-image {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* Productos: 2 columnas */
+  .productos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Nosotros: 1 columna */
+  .nosotros-inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .nosotros-stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Valores: 1 columna */
+  .valores-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Formulario: apila columnas */
+  .form-row {
+    flex-direction: column;
+  }
+
+  /* Footer: 2 columnas */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  section {
+    padding: 4rem 1.75rem;
+  }
+}
+
+/* =============================================
+   MEDIA QUERY — Breakpoint 2: Móvil (480px)
+   ============================================= */
+@media (max-width: 480px) {
+  html {
+    font-size: 15px;
+  }
+
+  section {
+    padding: 3.5rem 1.25rem;
+  }
+
+  .hero {
+    padding: 3rem 1.25rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-ctas .btn {
+    text-align: center;
+  }
+
+  .hero-badge {
+    font-size: 0.75rem;
+  }
+
+  /* Productos: 1 columna */
+  .productos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Stats: 2 columnas en móvil */
+  .nosotros-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  /* Footer: 1 columna */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  /* Ventajas en columna */
+  .ventajas-list {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ventaja-item {
+    max-width: 100%;
+  }
+
+  .section-header h2 {
+    font-size: 1.85rem;
+  }
+
+  .btn-submit {
+    align-self: stretch;
+    text-align: center;
+  }
+
+  .valores-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .navbar {
+    padding: 0 1.25rem;
+  }
+}

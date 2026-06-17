@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nocova — Distribuidores exclusivos de llantas Hanksugi para camiones. Calidad, durabilidad y rendimiento para su flota de transporte.">
+  <title>Nocova | Llantas Hanksugi para Camión</title>
+  <link rel="stylesheet" href="CSS/styles.css">
+</head>
+<body>
+
+  <!-- ===== ENCABEZADO Y NAVEGACIÓN ===== -->
+  <header>
+    <nav class="navbar" aria-label="Navegación principal">
+      <a href="#inicio" class="nav-logo" aria-label="Nocova — Ir al inicio">
+        <span class="logo-text">NOCOVA</span>
+        <span class="logo-sub">Llantas Hanksugi</span>
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle"
+        aria-label="Abrir menú de navegación"
+        aria-expanded="false"
+        aria-controls="nav-links">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+
+      <button class="theme-toggle" id="theme-toggle"
+        aria-label="Cambiar a modo oscuro">
+        <span class="theme-icon" aria-hidden="true">🌙</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ===== CONTENIDO PRINCIPAL ===== -->
+  <main>
+
+    <!-- HERO -->
+    <section id="inicio" class="hero" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <p class="hero-badge">Distribuidores Exclusivos Hanksugi</p>
+        <h1 id="hero-title">Llantas de Alta<br>Resistencia para<br>su Flota</h1>
+        <p class="hero-desc">
+          Llevamos la tecnología Hanksugi a su empresa. Llantas comerciales
+          diseñadas para máximo rendimiento en largo recorrido y distribución regional.
+        </p>
+        <div class="hero-ctas">
+          <a href="#productos" class="btn btn-primary">Ver Productos</a>
+          <a href="#contacto" class="btn btn-secondary">Solicitar Cotización</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img
+          src="https://www.hanksugi.com/images/hero-lineup.jpg"
+          alt="Lineup de llantas Hanksugi para camión de largo recorrido"
+          loading="lazy">
+      </div>
+    </section>
+
+    <!-- VENTAJAS -->
+    <section id="ventajas" class="ventajas" aria-labelledby="ventajas-title">
+      <h2 id="ventajas-title" class="sr-only">¿Por qué elegir Nocova?</h2>
+      <div class="ventajas-list">
+        <div class="ventaja-item">
+          <span class="ventaja-icon" aria-hidden="true">🏆</span>
+          <div>
+            <h3>Distribución Exclusiva</h3>
+            <p>Representantes certificados de Hanksugi para toda la región.</p>
+          </div>
+        </div>
+        <div class="ventaja-item">
+          <span class="ventaja-icon" aria-hidden="true">🚚</span>
+          <div>
+            <h3>Entrega a Flota</h3>
+            <p>Servicio de entrega directa a sus instalaciones, sin intermediarios.</p>
+          </div>
+        </div>
+        <div class="ventaja-item">
+          <span class="ventaja-icon" aria-hidden="true">🔧</span>
+          <div>
+            <h3>Soporte Técnico</h3>
+            <p>Asesoramiento especializado para elegir la llanta correcta según su aplicación.</p>
+          </div>
+        </div>
+        <div class="ventaja-item">
+          <span class="ventaja-icon" aria-hidden="true">💰</span>
+          <div>
+            <h3>Precio de Distribuidor</h3>
+            <p>Condiciones especiales de precio para flotas grandes y medianas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTOS — cuadrícula CSS Grid -->
+    <section id="productos" class="productos" aria-labelledby="productos-title">
+      <div class="section-header">
+        <h2 id="productos-title">Nuestro Catálogo</h2>
+        <p class="section-subtitle">
+          Llantas Hanksugi para todas las posiciones y aplicaciones de su flota comercial
+        </p>
+      </div>
+
+      <div class="productos-grid" role="list">
+
+        <!-- HS88 -->
+        <article class="producto-card" role="listitem" aria-labelledby="prod-hs88">
+          <div class="producto-badge">Más Vendida</div>
+          <img
+            src="https://www.hanksugi.com/images/tires/hs88.png"
+            alt="Llanta Hanksugi HS88 para eje de tracción en largo recorrido"
+            loading="lazy">
+          <div class="producto-info">
+            <h3 id="prod-hs88">HS88</h3>
+            <p class="producto-tipo">Tracción · Largo Recorrido</p>
+            <p class="producto-desc">
+              La llanta de tracción más vendida de Hanksugi. Bloques hexagonales
+              para máxima durabilidad en rutas largas con bajo rolling resistance.
+            </p>
+            <ul class="producto-features" aria-label="Características del HS88">
+              <li>Diseño de bloque hexagonal</li>
+              <li>Carcasa retreatable</li>
+              <li>Hombro cerrado para estabilidad</li>
+            </ul>
+            <a href="#contacto" class="btn btn-card">Cotizar</a>
+          </div>
+        </article>
+
+        <!-- HS86 -->
+        <article class="producto-card" role="listitem" aria-labelledby="prod-hs86">
+          <img
+            src="https://www.hanksugi.com/images/tires/hs86.png"
+            alt="Llanta Hanksugi HS86 SmartWay para eje de remolque"
+            loading="lazy">
+          <div class="producto-info">
+            <h3 id="prod-hs86">HS86 SmartWay</h3>
+            <p class="producto-tipo">Remolque · Largo Recorrido</p>
+            <p class="producto-desc">
+              Llanta de trailer premium con certificación SmartWay.
+              Ideal para dry vans, refrigerados y plataformas en corredores interestatales.
+            </p>
+            <ul class="producto-features" aria-label="Características del HS86">
+              <li>Certificación SmartWay</li>
+              <li>Micro sipes para desgaste uniforme</li>
+              <li>Protección contra piedras</li>
+            </ul>
+            <a href="#contacto" class="btn btn-card">Cotizar</a>
+          </div>
+        </article>
+
+        <!-- HS36 -->
+        <article class="producto-card" role="listitem" aria-labelledby="prod-hs36">
+          <img
+            src="https://www.hanksugi.com/images/tires/hs36.png"
+            alt="Llanta Hanksugi HS36 para eje de dirección en distribución regional"
+            loading="lazy">
+          <div class="producto-info">
+            <h3 id="prod-hs36">HS36 Regional</h3>
+            <p class="producto-tipo">Dirección · Distribución Regional</p>
+            <p class="producto-desc">
+              Cinco nervaduras para desgaste uniforme y manejo estable.
+              Diseñada para flotas de reparto en rutas regionales exigentes.
+            </p>
+            <ul class="producto-features" aria-label="Características del HS36">
+              <li>Alta capacidad de carga</li>
+              <li>Tecnología anti-desgaste irregular</li>
+              <li>Bajo consumo de combustible</li>
+            </ul>
+            <a href="#contacto" class="btn btn-card">Cotizar</a>
+          </div>
+        </article>
+
+        <!-- HS66 -->
+        <article class="producto-card" role="listitem" aria-labelledby="prod-hs66">
+          <img
+            src="https://www.hanksugi.com/images/tires/hs66.png"
+            alt="Llanta Hanksugi HS66 multiposición para cualquier eje de camión"
+            loading="lazy">
+          <div class="producto-info">
+            <h3 id="prod-hs66">HS66 All-Position</h3>
+            <p class="producto-tipo">Multiposición · Todo Terreno</p>
+            <p class="producto-desc">
+              Válida en dirección, tracción, remolque y eje libre.
+              Carcasa retreatable con garantía de dos recapados.
+            </p>
+            <ul class="producto-features" aria-label="Características del HS66">
+              <li>Válida en todas las posiciones</li>
+              <li>Garantía 2 recapados</li>
+              <li>Carcasa reforzada</li>
+            </ul>
+            <a href="#contacto" class="btn btn-card">Cotizar</a>
+          </div>
+        </article>
+
+        <!-- HS28+ -->
+        <article class="producto-card" role="listitem" aria-labelledby="prod-hs28">
+          <img
+            src="https://www.hanksugi.com/images/tires/hs28plus-titan.png"
+            alt="Llanta Hanksugi HS28+ Titan Trax para tracción en larga distancia"
+            loading="lazy">
+          <div class="producto-info">
+            <h3 id="prod-hs28">HS28+ Titan Trax</h3>
+            <p class="producto-tipo">Tracción · Larga Distancia</p>
+            <p class="producto-desc">
+              Tecnología propietaria HATT 3+1 para maximizar vida útil del
+              rodamiento y reducir el costo por kilómetro en rutas largas.
+            </p>
+            <ul class="producto-features" aria-label="Características del HS28+">
+              <li>Tecnología HATT 3+1</li>
+              <li>Tracción agresiva de bloque</li>
+              <li>Múltiples recapados</li>
+            </ul>
+            <a href="#contacto" class="btn btn-card">Cotizar</a>
+          </div>
+        </article>
+
+        <!-- HS26+ -->
+        <article class="producto-card" role="listitem" aria-labelledby="prod-hs26">
+          <img
+            src="https://www.hanksugi.com/images/tires/hs26plus-zeus.png"
+            alt="Llanta Hanksugi HS26+ Zeus Grip para eje de tracción con grip mejorado"
+            loading="lazy">
+          <div class="producto-info">
+            <h3 id="prod-hs26">HS26+ Zeus Grip</h3>
+            <p class="producto-tipo">Tracción · Grip Mejorado</p>
+            <p class="producto-desc">
+              Hombro abierto y diseño agresivo para tracción superior.
+              Rendimiento confiable en condiciones de ruta exigentes.
+            </p>
+            <ul class="producto-features" aria-label="Características del HS26+">
+              <li>Diseño de hombro abierto</li>
+              <li>Grip mejorado en cualquier pavimento</li>
+              <li>Alta resistencia de carcasa</li>
+            </ul>
+            <a href="#contacto" class="btn btn-card">Cotizar</a>
+          </div>
+        </article>
+
+        <!-- HS58 -->
+        <article class="producto-card" role="listitem" aria-labelledby="prod-hs58">
+          <img
+            src="https://www.hanksugi.com/images/tires/hs58.png"
+            alt="Llanta Hanksugi HS58 para camión comercial de uso general"
+            loading="lazy">
+          <div class="producto-info">
+            <h3 id="prod-hs58">HS58</h3>
+            <p class="producto-tipo">Comercial · Uso General</p>
+            <p class="producto-desc">
+              Llanta comercial de uso general con excelente desempeño
+              en transporte de carga multipropósito y operaciones mixtas.
+            </p>
+            <ul class="producto-features" aria-label="Características del HS58">
+              <li>Versátil en múltiples aplicaciones</li>
+              <li>Bajo costo por kilómetro</li>
+              <li>Alta resistencia estructural</li>
+            </ul>
+            <a href="#contacto" class="btn btn-card">Cotizar</a>
+          </div>
+        </article>
+
+        <!-- HS78 -->
+        <article class="producto-card" role="listitem" aria-labelledby="prod-hs78">
+          <img
+            src="https://www.hanksugi.com/images/tires/hs78.png"
+            alt="Llanta Hanksugi HS78 Faraon para operaciones comerciales de alta demanda"
+            loading="lazy">
+          <div class="producto-info">
+            <h3 id="prod-hs78">HS78 Faraon</h3>
+            <p class="producto-tipo">Comercial · Alta Durabilidad</p>
+            <p class="producto-desc">
+              Construcción robusta para operaciones de alta demanda.
+              Máximo rendimiento por kilómetro en condiciones de carga pesada.
+            </p>
+            <ul class="producto-features" aria-label="Características del HS78">
+              <li>Construcción robusta</li>
+              <li>Alta durabilidad en carga pesada</li>
+              <li>Máximo rendimiento por km</li>
+            </ul>
+            <a href="#contacto" class="btn btn-card">Cotizar</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- NOSOTROS -->
+    <section id="nosotros" class="nosotros" aria-labelledby="nosotros-title">
+      <div class="nosotros-inner">
+
+        <article class="nosotros-article" aria-labelledby="nosotros-title">
+          <div class="section-header nosotros-header">
+            <h2 id="nosotros-title">¿Quiénes Somos?</h2>
+          </div>
+          <p class="nosotros-lead">
+            Somos <strong>Nocova</strong>, distribuidores exclusivos de llantas
+            Hanksugi para camiones en la región. Nuestra misión es brindar a las
+            flotas de transporte acceso a tecnología de punta a precios competitivos.
+          </p>
+          <p>
+            Con más de 10 años de experiencia en el sector de transporte pesado,
+            entendemos las necesidades operativas de su empresa. Trabajamos
+            directamente con los fabricantes para garantizarle las mejores condiciones
+            del mercado.
+          </p>
+          <div class="nosotros-valores">
+            <h3>Nuestros valores</h3>
+            <div class="valores-grid">
+              <div class="valor-item">
+                <strong>Confianza</strong>
+                <p>Relaciones comerciales transparentes y duraderas con cada cliente.</p>
+              </div>
+              <div class="valor-item">
+                <strong>Calidad</strong>
+                <p>Solo distribuimos productos que cumplen los más altos estándares.</p>
+              </div>
+              <div class="valor-item">
+                <strong>Compromiso</strong>
+                <p>Estamos con usted antes, durante y después de la venta.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside class="nosotros-stats" aria-label="Datos estadísticos de Nocova">
+          <div class="stat-item">
+            <span class="stat-number">+10</span>
+            <span class="stat-label">Años de experiencia</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">+500</span>
+            <span class="stat-label">Flotas atendidas</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">8</span>
+            <span class="stat-label">Modelos Hanksugi</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">24/7</span>
+            <span class="stat-label">Soporte técnico</span>
+          </div>
+          <img
+            src="https://www.hanksugi.com/images/hanksugi-wordmark.png"
+            alt="Logo Hanksugi — marca de llantas distribuida por Nocova"
+            class="hanksugi-logo"
+            loading="lazy">
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="contacto" aria-labelledby="contacto-title">
+      <div class="section-header">
+        <h2 id="contacto-title">Solicite su Cotización</h2>
+        <p class="section-subtitle">
+          Cuéntenos sobre su flota y le enviamos una propuesta personalizada
+        </p>
+      </div>
+
+      <form id="contact-form" class="contacto-form" novalidate
+        aria-describedby="form-notice">
+        <p id="form-notice" class="sr-only">
+          Complete el formulario para solicitar una cotización.
+          Su nombre se guardará automáticamente para futuras visitas.
+        </p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nombre">
+              Nombre completo <span aria-hidden="true">*</span>
+            </label>
+            <input
+              type="text" id="nombre" name="nombre"
+              placeholder="Ej: Juan Rodríguez"
+              autocomplete="name"
+              required aria-required="true">
+          </div>
+          <div class="form-group">
+            <label for="empresa">Empresa</label>
+            <input
+              type="text" id="empresa" name="empresa"
+              placeholder="Nombre de su empresa"
+              autocomplete="organization">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">
+              Correo electrónico <span aria-hidden="true">*</span>
+            </label>
+            <input
+              type="email" id="email" name="email"
+              placeholder="correo@empresa.com"
+              autocomplete="email"
+              required aria-required="true">
+          </div>
+          <div class="form-group">
+            <label for="telefono">Teléfono</label>
+            <input
+              type="tel" id="telefono" name="telefono"
+              placeholder="+506 0000-0000"
+              autocomplete="tel">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="mensaje">
+            Mensaje <span aria-hidden="true">*</span>
+          </label>
+          <textarea
+            id="mensaje" name="mensaje" rows="4"
+            placeholder="Cuéntenos sobre su flota: número de unidades, tipo de ruta, modelos de interés..."
+            required aria-required="true"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-submit">
+          Enviar Solicitud
+        </button>
+        <p class="form-feedback" id="form-feedback" aria-live="polite"></p>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- ===== PIE DE PÁGINA ===== -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="footer-logo">NOCOVA</span>
+        <p>Distribuidores exclusivos de llantas Hanksugi para camiones en la región.</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Navegación del pie de página">
+        <h4>Navegación</h4>
+        <ul role="list">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#productos">Productos</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-products">
+        <h4>Llantas Hanksugi</h4>
+        <ul role="list">
+          <li><a href="#prod-hs88">HS88 Long-Haul</a></li>
+          <li><a href="#prod-hs86">HS86 SmartWay</a></li>
+          <li><a href="#prod-hs36">HS36 Regional</a></li>
+          <li><a href="#prod-hs66">HS66 All-Position</a></li>
+          <li><a href="#prod-hs28">HS28+ Titan Trax</a></li>
+          <li><a href="#prod-hs26">HS26+ Zeus Grip</a></li>
+          <li><a href="#prod-hs58">HS58 Comercial</a></li>
+          <li><a href="#prod-hs78">HS78 Faraon</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contacto</h4>
+        <address>
+          <p>📍 Ciudad Quesada, Costa Rica</p>
+          <p>📞 <a href="tel:+50600000000">+506 8577-8282</a></p>
+          <p>✉️ <a href="mailto:ventas@nocova.cr">ventas@nocova.cr</a></p>
+        </address>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Nocova. Todos los derechos reservados.
+        Distribuidores exclusivos Hanksugi.</p>
+    </div>
+  </footer>
+
+  <script src="JS/main.js"></script>
+</body>
+</html>
